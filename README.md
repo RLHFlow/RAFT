@@ -114,7 +114,10 @@ Then, we call the reward/preference model trained in step 2 to rank the generate
 
 ```sh
 accelerate launch ./annotate_data/get_rewards.py --dataset_name_or_path ./data/gen_data.jsonl --output_dir ./data/data_with_rewards.jsonl --K 4
+
+python ./annotate_data/get_bon_data.py --dataset_name_or_path ./data/data_with_rewards.jsonl --output_dir your_huggingface_dataset_dir
 ```
+
 If you encounter error ``TypeError: Got unsupported ScalarType BFloat16'', considering adjusting your transformer version.
 
 ### 3.3 Training
