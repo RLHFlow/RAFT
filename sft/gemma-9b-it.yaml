@@ -7,7 +7,7 @@ load_in_4bit: false
 strict: false
 
 datasets:
-  - path: RLHFlow/preference_data_v2_80K_wsafety
+  - path: RLHFlow/Llama3-SFT-RAFT-Ultrafeedback-iter1
     conversation: gemma
     type: sharegpt.load_ultrachat
     split: "train"
@@ -15,11 +15,11 @@ datasets:
 
 warmup_steps: 100
 val_set_size: 0.0
-output_dir: ./pm_models/gemma-9b-it_bs128_lr1e-5
+output_dir: ./models/gemma-9b-it_bs64_lr5e-7
 #wandb_project: preference-models
 #wandb_entity: domain-generalization
 wandb_watch:
-wandb_name: "gemma-9b-it_bs128_lr1e-5"
+wandb_name: "gemma-9b-it_bs64_lr5e-7"
 #_response_only
 wandb_log_model:
 
@@ -46,12 +46,12 @@ lora_model_dir:
 gradient_checkpointing: True
 
 #warmup_ratio: 0.1
-gradient_accumulation_steps: 16
+gradient_accumulation_steps: 8
 micro_batch_size: 1
-num_epochs: 1
+num_epochs: 2
 optimizer: paged_adamw_32bit
 lr_scheduler: cosine
-learning_rate: 1.e-5
+learning_rate: 5.e-7
 
 weight_decay: 0.0
 max_grad_norm: 1.0
@@ -74,7 +74,7 @@ eval_table_size:
 eval_table_max_new_tokens:
 #save_steps: 100
 save_strategy: "epoch"
-save_total_limit: 1
+save_total_limit: 2
 debug:
 
 
