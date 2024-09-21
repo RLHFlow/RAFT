@@ -1,5 +1,5 @@
 # RAFT
-This is an official implementation of the Reward rAnked Fine-Tuning Algorithm (RAFT), also known as iterative best-of-n fine-tuning or rejection sampling fine-tuning.
+This is an official implementation of the [Reward rAnked Fine-Tuning Algorithm (RAFT)](https://arxiv.org/pdf/2304.06767), also known as iterative best-of-n fine-tuning or rejection sampling fine-tuning.
 
 
 ## 1 Structure 
