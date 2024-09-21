@@ -7,7 +7,7 @@ load_in_4bit: false
 strict: false
 
 datasets:
-  - path: RLHFlow/pair-preference-dataset-mix1
+  - path: RLHFlow/Llama3-SFT-RAFT-Ultrafeedback-iter1
     conversation: gemma
     type: sharegpt.load_ultrachat
     split: "train"
@@ -15,11 +15,11 @@ datasets:
 
 warmup_steps: 40
 val_set_size: 0.0
-output_dir: ./pm_models/gemma-2b-it_bs128_lr1e-5
-#wandb_project: preference-models
-#wandb_entity: domain-generalization
+output_dir: ./models/gemma-2b-it_64_lr1e-5
+#wandb_project: sft-models
+#wandb_entity: raft_train
 wandb_watch:
-wandb_name: "gemma-2b-it_bs128_lr1e-5"
+wandb_name: "gemma-2b-it_bs64_lr1e-5"
 #_response_only
 wandb_log_model:
 
@@ -32,7 +32,7 @@ dataset_prepared_path: ~/data/preference-models/last_run_prepared
 
 dataset_processes: 48
 #torch_compile: true
-sequence_len: 3072
+sequence_len: 4096
 sample_packing: true
 pad_to_sequence_len: true
 
@@ -43,13 +43,13 @@ lora_model_dir:
 
 
 
-gradient_checkpointing: false
+gradient_checkpointing: true
 
 #warmup_ratio: 0.1
-gradient_accumulation_steps: 8
+gradient_accumulation_steps: 4
 micro_batch_size: 2
-num_epochs: 1
-optimizer: adamw_torch_fused
+num_epochs: 2
+optimizer: paged_adamw_32bit
 lr_scheduler: cosine
 learning_rate: 1.e-5
 
@@ -74,7 +74,7 @@ eval_table_size:
 eval_table_max_new_tokens:
 #save_steps: 100
 save_strategy: "epoch"
-save_total_limit: 1
+save_total_limit: 2
 debug:
 
 
