@@ -10,6 +10,11 @@ The initial release of tis project focus on the Bradley-Terry reward modeling an
 - [`Reward Ranking`](./annotate_data/) to compute the rewards of the responses and select the response with highest reward;
 - [`Finetuning`](./sft/) to finetune the model on the selected responses.
 
+
+We also provide a small demo for RAFT+diffusion model in [diffusion-example](./diffusion-example).
+
+You may also refer to our [colab](https://colab.research.google.com/drive/1bQmlSiKnqFjrkijFUJ5ylbYW-zUwObqL) for more information.
+
 ## 2 Installation instructions
 
 It is recommended to have two separate environments for inference and training, respectively.
